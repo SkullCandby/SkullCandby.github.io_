@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<meta charset="utf-8">
+<style>
+    body {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background: var(--tg-theme-bg-color);
+    }
+    .img-section {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+    }
+    img, button {
+        margin: auto auto;
+        width: 392px;
+        height: 392px;
+        /* UI Properties */
+        box-shadow: 0px 15px 15px #00000029;
+        border: 3px solid #27A7E7;
+        border-radius: 50px;
+        opacity: 1;
+        padding: 0;
+    }
+
+    .name {
+        height: 48px;
+        /* UI Properties */
+        font: normal normal bold 40px/48px SF Pro;
+        letter-spacing: 0px;
+        color: #27A7E7;
+        opacity: 1;
+        margin: 2px;
+    }
+    .type {
+        height: 48px;
+        /* UI Properties */
+        font: normal normal 300 40px/48px SF Pro;
+        letter-spacing: 0px;
+        color: #27A7E7;
+        opacity: 1;
+        margin: 2px;
+    }
+    button:active {
+      box-shadow: 0 5px #666;
+      transform: translateY(4px);
+    }
+</style>
+<head>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+</head>
+<body>
+    <section class="img-section">
+        <button id="mario">
+            <img src="mario.png">
+        </button>
+        <p class="name">Марио</p>
+        <p class="type">Персонаж</p>
+    </section>
+
+    <section class="img-section">
+        <button id="enstein">
+            <img src="enstein.png">
+        </button>
+        <p class="name">Альберт Эйнштейн</p>
+        <p class="type">Физик-теоретик</p>
+
+
+    </section>
+</body>
+<script>
+    let tg = window.Telegram.WebApp;
+    tg.expand();
+
+    let mario_btn = document.getElementById("mario");
+    let enstein_btn = document.getElementById("enstein");
+
+    mario_btn.addEventListener("click", function() {
+        tg.sendData("mario");
+    })
+    enstein_btn.addEventListener("click", function() {
+        tg.sendData("enstein");
+    })
+
+    // Telegram.WebApp.OnEvent("");
+</script>
+</html>
